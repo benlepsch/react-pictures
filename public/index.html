@@ -9,13 +9,19 @@
       name="description"
       content="Web site created using create-react-app"
     />
+
+    <style>
+        .image {
+            display: none;
+        }
+    </style>
+
     <title>Pictures</title>
   </head>
   <body>
-    <div id="pic-holder" style="display: none;">
-        <img src="%PUBLIC_URL%/images/20250312_191544.jpg">
-        <img src="%PUBLIC_URL%/images/image.jpg">
-    </div>
+    <img class="image" src="%PUBLIC_URL%/images/20250312_191544.jpg">
+    <img class="image" src="%PUBLIC_URL%/images/image.jpg">
+    
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>

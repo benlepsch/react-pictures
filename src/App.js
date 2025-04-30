@@ -28,9 +28,11 @@ export default function Frame() {
     const [pn, setPn] = useState(0);
     
     let pics = [];
-    const picHolder = document.getElementById('pic-holder').childNodes;
+    const picHolder = document.querySelectorAll('.image');
+    console.log(picHolder);
 
     for (let i = 0; i < picHolder.length; i++) {
+        console.log('adding picture: ' + picHolder[i].src);
         pics.push(picHolder[i].src);
     }
     
@@ -39,6 +41,7 @@ export default function Frame() {
         if (pn >= pics.length) {
             setPn(0);
         }
+        console.log('adding to pn, now ' + pn);
     }
 
     function dec() {
@@ -46,6 +49,7 @@ export default function Frame() {
         if (pn < 0) {
             setPn(pics.length - 1);
         }
+        console.log('subtracting from pn, now ' + pn);
     }
 
 

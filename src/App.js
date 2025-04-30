@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+function LeftArrow({ handleClick }) {
+    return (
+        <button
+            onClick={handleClick}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+           Back
+        </button>
+    );
 }
 
-export default App;
+function RightArrow({ handleClick }) {
+    return (
+        <button
+            onClick={handleClick}
+        >
+            Forward
+        </button>
+    );
+}
+
+function Caption() {
+    return (<p>goo goo ga ga</p>);
+}
+
+export default function Frame() {
+    const [pn, setPn] = useState(0);
+    
+    let pics = [];
+    const picHolder = document.getElementById('pic-holder').childNodes;
+
+    for (let i = 0; i < picHolder.length; i++) {
+        pics.push(picHolder[i].src);
+    }
+    
+    function inc() {
+        setPn(pn + 1);
+        if (pn >= pics.length) {
+            setPn(0);
+        }
+    }
+
+    function dec() {
+        setPn(pn - 1);
+        if (pn < 0) {
+            setPn(pics.length - 1);
+        }
+    }
+
+
+    return (
+        <>
+            <LeftArrow handleClick={dec} />
+            <img alt="" src={pics[pn]} />
+            <RightArrow handleClick={inc} />
+            <Caption /> 
+        </>
+    );
+}

@@ -1,0 +1,13 @@
+services:
+    server:
+        build:
+            context: .
+        ports:
+            - 8080:8080
+        networks:
+            - test_network
+
+networks:
+    test_network:
+        external: true
+        name: test_network

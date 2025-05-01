@@ -12,7 +12,7 @@ function Arrow({ text, handleClick }) {
 }
 
 function Caption({ text }) {
-    return (<p>{text}</p>);
+    return (<p class="flexy">{text}</p>);
 }
 
 export default function Frame() {
@@ -44,10 +44,10 @@ export default function Frame() {
 
     return (
     <>
-        <img alt={alts[pn]} src={pics[pn]} />
-        <div class="flexy flex-col container relative">
+        <div class="flexy flex-col container">
+            <img class="flexy" alt={alts[pn]} src={pics[pn]} />    
             <Caption text={alts[pn]} /> 
-            <div class="flexy flex-row container">
+            <div class="flexy flex-row wide">
                 <Arrow text={"Back"} handleClick={dec} />
                 <Arrow text={"Forward"} handleClick={inc} />
             </div>

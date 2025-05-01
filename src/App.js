@@ -11,20 +11,22 @@ function Arrow({ text, handleClick }) {
     );
 }
 
-function Caption() {
-    return (<p>goo goo ga ga</p>);
+function Caption({ text }) {
+    return (<p>{text}</p>);
 }
 
 export default function Frame() {
     const [pn, setPn] = useState(0);
     
     let pics = [];
+    let alts = [];
     const picHolder = document.querySelectorAll('.image');
     // console.log(picHolder);
 
     for (let i = 0; i < picHolder.length; i++) {
         // console.log('adding picture: ' + picHolder[i].src);
         pics.push(picHolder[i].src);
+        alts.push(picHolder[i].alt);
     }
     
     function inc() {
@@ -41,13 +43,15 @@ export default function Frame() {
 
 
     return (
-        <div class="flexy flex-col">
-            <img alt="" src={pics[pn]} />
-            <Caption /> 
-            <div class="flexy flex-row">
+    <>
+        <img alt={alts[pn]} src={pics[pn]} />
+        <div class="flexy flex-col container relative">
+            <Caption text={alts[pn]} /> 
+            <div class="flexy flex-row container">
                 <Arrow text={"Back"} handleClick={dec} />
                 <Arrow text={"Forward"} handleClick={inc} />
             </div>
         </div>
+    </>
     );
 }

@@ -1,8 +1,9 @@
 body {
-    background-color: grey;
+    background-color: #c5e7f6;
 }
 
 img {
+    outline: 1px solid black;
     max-width: 80%;
     max-height: 80%;
     flex-basis: 850px;

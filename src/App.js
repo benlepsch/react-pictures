@@ -50,7 +50,9 @@ export default function Frame() {
     return (
     <>
         <div class="flexy flex-col container">
-            <img class="flexy" alt={alts[pn]} src={pics[pn]} />    
+            <div class="flexy imgc">
+                <img alt={alts[pn]} src={pics[pn]} />    
+            </div>
             <Caption text={alts[pn]} /> 
             <div class="flexy flex-row wide">
                 <Arrow text={"Back"} handleClick={dec} />

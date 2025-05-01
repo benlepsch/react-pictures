@@ -41,6 +41,11 @@ export default function Frame() {
         // console.log('subtracting from pn, now ' + pn);
     }
 
+    function rand() {
+        const next = Math.floor(Math.random() * pics.length);
+        setPn(next);
+    }
+
 
     return (
     <>
@@ -49,7 +54,8 @@ export default function Frame() {
             <Caption text={alts[pn]} /> 
             <div class="flexy flex-row wide">
                 <Arrow text={"Back"} handleClick={dec} />
-                <Arrow text={"Forward"} handleClick={inc} />
+                <Arrow text={"Random"} handleClick={rand} />
+                <Arrow text={"Next"} handleClick={inc} />
             </div>
         </div>
     </>

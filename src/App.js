@@ -1,21 +1,12 @@
 import { useState } from 'react';
 
-function LeftArrow({ handleClick }) {
+function Arrow({ text, handleClick }) {
     return (
         <button
             onClick={handleClick}
+            class="flexy"
         >
-           Back
-        </button>
-    );
-}
-
-function RightArrow({ handleClick }) {
-    return (
-        <button
-            onClick={handleClick}
-        >
-            Forward
+           {text}
         </button>
     );
 }
@@ -54,8 +45,8 @@ export default function Frame() {
             <img alt="" src={pics[pn]} />
             <Caption /> 
             <div class="flexy flex-row">
-                <LeftArrow handleClick={dec} />
-                <RightArrow handleClick={inc} />
+                <Arrow text={"Back"} handleClick={dec} />
+                <Arrow text={"Forward"} handleClick={inc} />
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ body {
 
 img {
     outline: 1px solid black;
-    max-width: 80%;
+    max-width: 95%;
     max-height: 80%;
     flex-basis: 850px;
     overflow: auto;

@@ -46,7 +46,7 @@ button {
 .image {
     display: none;
 }
-
+/*
 @media all and (max-width:768px) {
     #mobile { display: block; }
     #root { display: none; }
@@ -55,4 +55,4 @@ button {
 @media all and (min-width:768px) {
     #mobile { display: none; }
     #root { display: block; }
-}
+} */

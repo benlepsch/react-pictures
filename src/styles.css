@@ -1,0 +1,25 @@
+body {
+    background-color: grey;
+}
+
+img {
+    width: 70%;
+    height: 50%;
+}
+
+.flexy {
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.image {
+    display: none;
+}

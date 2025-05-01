@@ -29,36 +29,34 @@ export default function Frame() {
     
     let pics = [];
     const picHolder = document.querySelectorAll('.image');
-    console.log(picHolder);
+    // console.log(picHolder);
 
     for (let i = 0; i < picHolder.length; i++) {
-        console.log('adding picture: ' + picHolder[i].src);
+        // console.log('adding picture: ' + picHolder[i].src);
         pics.push(picHolder[i].src);
     }
     
     function inc() {
-        setPn(pn + 1);
-        if (pn >= pics.length) {
-            setPn(0);
-        }
-        console.log('adding to pn, now ' + pn);
+        const next = (pn < picHolder.length - 1) ? pn + 1 : 0;
+        setPn(next);
+        // console.log('adding to pn, now ' + pn);
     }
 
     function dec() {
-        setPn(pn - 1);
-        if (pn < 0) {
-            setPn(pics.length - 1);
-        }
-        console.log('subtracting from pn, now ' + pn);
+        const next = (pn > 0) ? pn - 1 : pics.length - 1;
+        setPn(next);
+        // console.log('subtracting from pn, now ' + pn);
     }
 
 
     return (
-        <>
-            <LeftArrow handleClick={dec} />
+        <div class="flexy flex-col">
             <img alt="" src={pics[pn]} />
-            <RightArrow handleClick={inc} />
             <Caption /> 
-        </>
+            <div class="flexy flex-row">
+                <LeftArrow handleClick={dec} />
+                <RightArrow handleClick={inc} />
+            </div>
+        </div>
     );
 }

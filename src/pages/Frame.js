@@ -1,12 +1,5 @@
 import { useState } from 'react';
 
-const PICTURE_DATA = [
-    { 
-        src: "images/IMG_7079.jpg",
-        alt: "Gorham mountain, the Beehive, sand beach, & Great Head. Acadia NP, ME",
-    },
-];
-
 function Arrow({ text, handleClick }) {
     return (
         <button
@@ -56,5 +49,69 @@ function Frame() {
         </div>
     );
 }
+
+const PICTURE_DATA = [
+    { 
+        src: "images/IMG_7079.jpg",
+        alt: "Gorham mountain, the Beehive, sand beach, & Great Head. Acadia NP, ME",
+    },
+    {
+        src: "images/IMG_7115.jpg",
+        alt: "The Atlantic Ocean from the top of the South Wall at sunset. Acadia NP, ME",
+    },
+    {
+        src: "images/gallery.jpg",
+        alt: "Seconds away from injuring my pinky finger while trying the Gallery 5.12a. Acadia NP, ME",
+    },
+    {
+        src: "images/IMG_6479.jpg",
+        alt: "Nearing the summit of Mt Marcy the day before the 2024 eclipse. Adirondacks, NY",
+    },
+    {
+        src: "images/gunks.jpg",
+        alt: "Walking along the top of the Peterskill area at the Gunks. Shawangunk Mountains, NY",
+    },
+    {
+        src: "images/IMG_5297.jpg",
+        alt: "Waking up to a foggy morning in Dolly Sods, WV",
+    },
+    {
+        src: "images/seneca.jpg",
+        alt: "Seneca rocks, WV",
+    },
+    {
+        src: "images/IMG_6276.jpg",
+        alt: "Skiing at the Purgatory resort near Durango, CO",
+    },
+    {
+        src: "images/20250312_173125.jpg",
+        alt: "Tom and I on top of Castleton Tower. Castle Valley, UT",
+    },
+    {
+        src: "images/IMG_6985.jpg",
+        alt: "Maya hitting the fent slump on top of Castleton Tower with the La Sal mountains in the background. Castle Valley, UT",
+    },
+    {
+        src: "images/20250312_191544.jpg",
+        alt: "Hiking down from Castleton Tower as the moon rises. Castle Valley, UT",
+    },
+    {
+        src: "images/image.jpg",
+        alt: "Oh My God Dihedral & the view towards Etlan from the top of Strawberry Fields. Old Rag, VA",
+    },
+    {
+        src: "images/thunderstruck.jpg",
+        alt: "2 falls into Thunderstruck 5.12b and about to take my third. New River Gorge, WV",
+    },
+    {
+        src: "images/IMG_6272.jpg",
+        alt: "Taking a break on the Falcon Flow trail outside Moab, UT",
+    },
+    {
+        src: "images/IMG_6177.jpg",
+        alt: "View from inside the Looking Glass arch outside Moab, UT",
+    },
+];
+
 
 export default Frame;

@@ -16,6 +16,8 @@ function Caption({ text }) {
 }
 
 function Frame() {
+    document.title = 'Pictures';
+
     const [pn, setPn] = useState(0);
 
     function inc() {

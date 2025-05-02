@@ -31,6 +31,7 @@ function Main() {
 }
 
 function Fart() {
+    document.title = 'fart';
     return (
         <p>ahahaha you thought you could log in? its a static server dummy</p>
     );

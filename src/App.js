@@ -1,16 +1,8 @@
 import { React } from 'react';
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 
+import Home from './pages/Home';
 import Frame from './pages/Frame';
-
-function App() {
-    return (
-        <BrowserRouter>
-            <Navigation />
-            <Main />
-        </BrowserRouter>
-    );
-}
 
 function Navigation() {
     return (
@@ -40,18 +32,19 @@ function Navigation() {
 function Main() {
     return (
         <Routes>
-            <Route exact path='/' element={<Fart/>}></Route>
+            <Route exact path='/' element={<Home/>}></Route>
             <Route exact path='/pictures' element={<Frame/>}></Route>
         </Routes>
     );
 }
 
-function Fart() {
-    document.title = 'fart';
+function App() {
     return (
-        <p>ahahaha you thought you could log in? its a static server dummy</p>
+        <BrowserRouter>
+            <Navigation />
+            <Main />
+        </BrowserRouter>
     );
 }
-
 
 export default App;

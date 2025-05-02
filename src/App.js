@@ -23,8 +23,8 @@ function Navigation() {
 function Main() {
     return (
         <Routes>
-            <Route exact path='/' component={Home}></Route>
-            <Route exact path='/fart' component={Fart}></Route>
+            <Route exact path='/' element={Home}></Route>
+            <Route exact path='/fart' element={Fart}></Route>
         </Routes>
     );
 }

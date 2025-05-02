@@ -3,6 +3,7 @@ import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Frame from './pages/Frame';
+import PageNotFound from './pages/404';
 
 function Navigation() {
     return (
@@ -34,6 +35,7 @@ function Main() {
         <Routes>
             <Route exact path='/' element={<Home/>}></Route>
             <Route exact path='/pictures' element={<Frame/>}></Route>
+            <Route path='*' element={<PageNotFound />}></Route>
         </Routes>
     );
 }

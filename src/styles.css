@@ -46,6 +46,11 @@ button {
 .image {
     display: none;
 }
+
+.nav-link {
+    margin-left: 10px;
+    margin-right: 10px;
+}
 /*
 @media all and (max-width:768px) {
     #mobile { display: block; }

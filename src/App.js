@@ -14,18 +14,34 @@ function App() {
 
 function Navigation() {
     return (
-        <ul>
-            <li><Link to='/'>home</Link></li>
-            <li><Link to='/fart'>log in</Link></li>
-        </ul>
+        <header class="flexy flex-row">
+            <div class="flexy flex-row nav-link">
+                <Link to='/'>Home</Link>
+            </div>
+            <div class="flexy flex-row nav-link">
+                <a href="https://github.com/benlepsch/" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+            <div class="flexy flex-row nav-link">
+                <a href="https://benlepsch.github.io/ben_lepsch_resume.pdf" download>Resume</a>
+            </div>
+            <div class="flexy flex-row nav-link">
+                <Link to='/pictures'>Pictures</Link>
+            </div>
+            <div class="flexy flex-row nav-link">
+                <a href="https://www.mountainproject.com/user/201776606/ben-lepsch" target="_blank" rel="noopener noreferrer">Mountain Project</a>
+            </div>
+            <div class="flexy flex-row nav-link">
+                <a href="https://sbcord.com/" target="_blank" rel="noopener noreferrer">Friends</a>
+            </div>
+        </header>
     );
 }
 
 function Main() {
     return (
         <Routes>
-            <Route exact path='/' element={<Frame/>}></Route>
-            <Route exact path='/fart' element={<Fart/>}></Route>
+            <Route exact path='/' element={<Fart/>}></Route>
+            <Route exact path='/pictures' element={<Frame/>}></Route>
         </Routes>
     );
 }

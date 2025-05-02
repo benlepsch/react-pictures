@@ -2,6 +2,16 @@ body {
     background-color: #c5e7f6;
 }
 
+div, p {
+    font-family: Microsoft Tai Le, Candara, sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    padding: 3%;
+    margin: auto;
+}
+
 img {
     outline: 1px solid black;
     max-width: 100%;
@@ -51,13 +61,3 @@ button {
     margin-left: 10px;
     margin-right: 10px;
 }
-/*
-@media all and (max-width:768px) {
-    #mobile { display: block; }
-    #root { display: none; }
-}
-
-@media all and (min-width:768px) {
-    #mobile { display: none; }
-    #root { display: block; }
-} */

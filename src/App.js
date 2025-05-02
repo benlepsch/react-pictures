@@ -1,5 +1,7 @@
-import { React, useState } from 'react';
+import { React } from 'react';
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
+
+import { Frame } from './pages/Home';
 
 function App() {
     return (
@@ -13,7 +15,7 @@ function App() {
 function Navigation() {
     return (
         <ul>
-            <li><Link to='/'> home</Link></li>
+            <li><Link to='/'>home</Link></li>
             <li><Link to='/fart'>log in</Link></li>
         </ul>
     );
@@ -22,15 +24,9 @@ function Navigation() {
 function Main() {
     return (
         <Routes>
-            <Route exact path='/' element={<Home/>}></Route>
+            <Route exact path='/' element={<Frame/>}></Route>
             <Route exact path='/fart' element={<Fart/>}></Route>
         </Routes>
-    );
-}
-
-function Home() {
-    return (
-        <p>what is this</p>
     );
 }
 

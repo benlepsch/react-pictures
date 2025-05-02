@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 
-import { Frame } from './pages/Home';
+import Frame from './pages/Frame';
 
 function App() {
     return (

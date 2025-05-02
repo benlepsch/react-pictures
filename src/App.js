@@ -1,21 +1,20 @@
 import { React, useState } from 'react';
-import { NavLink, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 
 function App() {
     return (
-        <>
-            <p>will this work? who knows</p>
+        <BrowserRouter>
             <Navigation />
             <Main />
-        </>
+        </BrowserRouter>
     );
 }
 
 function Navigation() {
     return (
         <ul>
-            <li><NavLink to='/'> home</NavLink></li>
-            <li><NavLink to='/fart'>log in</NavLink></li>
+            <li><Link to='/'> home</Link></li>
+            <li><Link to='/fart'>log in</Link></li>
         </ul>
     );
 }
@@ -23,8 +22,8 @@ function Navigation() {
 function Main() {
     return (
         <Routes>
-            <Route exact path='/' element={Home}></Route>
-            <Route exact path='/fart' element={Fart}></Route>
+            <Route exact path='/' element={<Home/>}></Route>
+            <Route exact path='/fart' element={<Fart/>}></Route>
         </Routes>
     );
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, Routes, Route } from 'react-router-dom';
 
 function Arrow({ text, handleClick }) {
     return (
@@ -60,6 +61,21 @@ export default function Frame() {
                 <Arrow text={"Next"} handleClick={inc} />
             </div>
         </div>
+        <Link to="/fart">To fart</Link>
+        <Main />
     </>
+    );
+}
+
+const Fart = () => {
+    return <Link to="/">To main</Link>
+}
+
+const Main = () => {
+    return (
+        <Routes>
+            <Route exact path="/" element={<Frame />} />
+            <Route exact path="/fart" element={<Fart />} />
+        </Routes>
     );
 }

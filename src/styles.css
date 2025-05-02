@@ -7,8 +7,12 @@ div, p {
     line-height: 1.5;
 }
 
+p {
+    padding: 10px;
+}
+
 header {
-    padding: 3%;
+    padding: 10px;
     margin: auto;
 }
 
@@ -19,7 +23,7 @@ img {
 }
 
 .imgc {
-    flex-basis: 850px;
+    flex-basis: 800px;
     overflow: auto;
 }
 

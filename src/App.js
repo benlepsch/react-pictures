@@ -1,13 +1,15 @@
-import { useState } from 'react';
-import { NavLink, Switch, Route } from 'react-router-dom';
+import { React, useState } from 'react';
+import { NavLink, Routes, Route } from 'react-router-dom';
 
-const App = () => (
+export default function App () {
+    return (
     <>
         <p>will this work? who knows</p>
         <Navigation />
         <Main />
     </>
-);
+    );
+}
 
 const Navigation = () => (
     <>
@@ -17,10 +19,10 @@ const Navigation = () => (
 );
 
 const Main = () => (
-    <Switch>
+    <Routes>
         <Route exact path='/' component={Home}></Route>
         <Route exact path='/fart' component={Fart}></Route>
-    </Switch>
+    </Routes>
 );
 
 const Home = () => (

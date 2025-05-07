@@ -3,6 +3,7 @@ import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Frame from './pages/Frame';
+import Minesweeper from './pages/Minesweeper';
 import PageNotFound from './pages/404';
 
 function Navigation() {
@@ -12,19 +13,16 @@ function Navigation() {
                 <Link to='/'>Home</Link>
             </div>
             <div class="flexy flex-row nav-link">
-                <a href="https://github.com/benlepsch/" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </div>
-            <div class="flexy flex-row nav-link">
-                <a href="https://benlepsch.github.io/ben_lepsch_resume.pdf" download>Resume</a>
-            </div>
-            <div class="flexy flex-row nav-link">
                 <Link to='/pictures'>Pictures</Link>
             </div>
             <div class="flexy flex-row nav-link">
-                <a href="https://www.mountainproject.com/user/201776606/ben-lepsch" target="_blank" rel="noopener noreferrer">Mountain Project</a>
+                <Link to='/minesweeper'>Minesweeper</Link>
             </div>
             <div class="flexy flex-row nav-link">
                 <a href="https://sbcord.com/" target="_blank" rel="noopener noreferrer">Friends</a>
+            </div>
+            <div class="flexy flex-row nav-link">
+                <a href="https://bleps.ch/">Back to main website</a>
             </div>
         </header>
     );
@@ -33,8 +31,9 @@ function Navigation() {
 function Main() {
     return (
         <Routes>
-            <Route exact path='/' element={<Home/>}></Route>
-            <Route exact path='/pictures' element={<Frame/>}></Route>
+            <Route exact path='/' element={<Home />}></Route>
+            <Route exact path='/pictures' element={<Frame />}></Route>
+            <Route exact path='/minesweeper' element={<Minesweeper />}></Route>
             <Route path='*' element={<PageNotFound />}></Route>
         </Routes>
     );

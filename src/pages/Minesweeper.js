@@ -11,6 +11,30 @@ const Vis = {
 function Cell({ x, y, bombs, vis }) {
     const [style, setStyle] = useState('cell ' + vis[x][y]);
 
+    let number = 'B';
+    let num_temp = 0;
+    if (!bombs[x][y]) {
+        const lx = (x == 0) ? x : x - 1;
+        const hx = (x == vis.length-1) ? x + 1 : x + 2;
+        const ly = (y == 0) ? y : y - 1;
+        const hy = (y == vis[0].length-1) ? y + 1 : y + 2;
+
+        // console.log('i am square (' + x + ',' + y + ') checking ' + lx + ' to ' + hx + ' and ' + ly + ' to ' + hy);
+
+        for (let i = lx; i < hx; i++) {
+            for (let j = ly; j < hy; j++) {
+                num_temp += bombs[i][j];
+            }
+        }
+        
+        if (num_temp !== 0) {
+            number = num_temp.toString();
+        } else {
+            number = '';
+        }
+    }
+    
+
     const clicked = (e) => {
         e.preventDefault();
         console.log(e.type);
@@ -35,6 +59,7 @@ function Cell({ x, y, bombs, vis }) {
             onContextMenu={clicked}
             class={style}
         >
+            {number}
         </div>
     );
 }
@@ -66,6 +91,12 @@ function Board({ width, height }) {
         vis.push(visCol);
         bombs.push(bombsCol);
     }
+
+    bombs[0][0] = true;
+    bombs[2][4] = true;
+    bombs[4][4] = true;
+    bombs[0][7] = true;
+    bombs[0][8] = true;
 
     for (let i = 0; i < width; i++) {
         board.push(<Col x={i} height={height} bombs={bombs} vis={vis} />);

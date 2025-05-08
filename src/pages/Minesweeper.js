@@ -64,7 +64,7 @@ function Board({ width, height }) {
     function handleClick(event, cell) {
         if (event.type === 'click') {
             if (vis[cell.x][cell.y] !== Vis.Flagged) {
-                vis[cell.x]cell.[y] = Vis.Cleared;
+                vis[cell.x][cell.y] = Vis.Cleared;
             }
         } else if (event.type === 'contextmenu') {
             if (vis[cell.x][cell.y] === Vis.Flagged) {

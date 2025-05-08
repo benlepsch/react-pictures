@@ -86,11 +86,9 @@ function Board({ width, height }) {
         const ly = (y == 0) ? y : y - 1;
         const hy = (y == bombs[0].length-1) ? y + 1 : y + 2;
 
-        for (let i = 0; i < lx; i++) {
-            for (let j = 0; j < ly; j++) {
-                if ((i !== x) && (j !== y)) {
-                    numbers[i][j] += 1;
-                }
+        for (let i = lx; i < hx; i++) {
+            for (let j = ly; j < hy; j++) {
+                numbers[i][j] += 1;
             }
         }
     }
@@ -101,6 +99,8 @@ function Board({ width, height }) {
     addBomb(0, 7);
     addBomb(0, 8);
     addBomb(6, 0);
+    
+    // console.log(numbers);
 
     for (let i = 0; i < width; i++) {
         board.push(<Col x={i} height={height} bombs={bombs[i]} nums={numbers[i]} handleClick={handleClick} />);

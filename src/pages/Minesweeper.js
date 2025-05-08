@@ -63,18 +63,18 @@ function Col({ x, height, bombs, vis, handleClick }) {
 function Board({ width, height }) {
     function handleClick(event, cell) {
         if (event.type === 'click') {
-            if (vis[x][y] !== Vis.Flagged) {
-                vis[x][y] = Vis.Cleared;
+            if (vis[cell.x][cell.y] !== Vis.Flagged) {
+                vis[cell.x]cell.[y] = Vis.Cleared;
             }
         } else if (event.type === 'contextmenu') {
-            if (vis[x][y] === Vis.Flagged) {
-                vis[x][y] = Vis.Hidden;
-            } else if (vis[x][y] !== Vis.Cleared) {
-                vis[x][y] = Vis.Flagged;
+            if (vis[cell.x][cell.y] === Vis.Flagged) {
+                vis[cell.x][cell.y] = Vis.Hidden;
+            } else if (vis[cell.x][cell.y] !== Vis.Cleared) {
+                vis[cell.x][cell.y] = Vis.Flagged;
             }
         }
 
-        cell.setStyle('cell ' + vis[x][y]);
+        cell.setStyle('cell ' + vis[cell.x][cell.y]);
     }
 
     const vis = [];

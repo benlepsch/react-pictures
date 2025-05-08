@@ -37,11 +37,13 @@ function Cell({ x, y, bombs, style, handleClick }) {
         handleClick(e, x, y);
     }
 
+    const id = x.toString() + 'x' + y.toString() + 'y';
     return (
         <div 
             onClick={clicked} 
             onContextMenu={clicked}
             class={style}
+            id={id}
         >
             {number}
         </div>

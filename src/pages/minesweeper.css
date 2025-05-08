@@ -3,3 +3,14 @@
     height: 15px;
     outline: 1px solid black;
 }
+
+.column {
+
+}
+
+.board {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}

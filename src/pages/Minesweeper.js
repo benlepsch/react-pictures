@@ -36,7 +36,7 @@ function Cell({ x, y, bombs, vis, handleClick }) {
     
     const clicked = (e) => {
         e.preventDefault();
-        handleClick(e, this);
+        handleClick(e, this, x, y);
     }
 
     return (
@@ -61,20 +61,20 @@ function Col({ x, height, bombs, vis, handleClick }) {
 }
 
 function Board({ width, height }) {
-    function handleClick(event, cell) {
+    function handleClick(event, cell, x, y) {
         if (event.type === 'click') {
-            if (vis[cell.x][cell.y] !== Vis.Flagged) {
-                vis[cell.x][cell.y] = Vis.Cleared;
+            if (vis[x][y] !== Vis.Flagged) {
+                vis[x][y] = Vis.Cleared;
             }
         } else if (event.type === 'contextmenu') {
-            if (vis[cell.x][cell.y] === Vis.Flagged) {
-                vis[cell.x][cell.y] = Vis.Hidden;
-            } else if (vis[cell.x][cell.y] !== Vis.Cleared) {
-                vis[cell.x][cell.y] = Vis.Flagged;
+            if (vis[x][y] === Vis.Flagged) {
+                vis[x][y] = Vis.Hidden;
+            } else if (vis[x][y] !== Vis.Cleared) {
+                vis[x][y] = Vis.Flagged;
             }
         }
 
-        cell.setStyle('cell ' + vis[cell.x][cell.y]);
+        cell.setStyle('cell ' + vis[x][y]);
     }
 
     const vis = [];

@@ -36,7 +36,8 @@ function Cell({ x, y, bombs, vis, handleClick }) {
     
     const clicked = (e) => {
         e.preventDefault();
-        handleClick(e, this, x, y);
+        handleClick(e, x, y);
+        setStyle('cell ' + vis[x][y]);
     }
 
     return (
@@ -61,7 +62,7 @@ function Col({ x, height, bombs, vis, handleClick }) {
 }
 
 function Board({ width, height }) {
-    function handleClick(event, cell, x, y) {
+    function handleClick(event, x, y) {
         if (event.type === 'click') {
             if (vis[x][y] !== Vis.Flagged) {
                 vis[x][y] = Vis.Cleared;
@@ -73,8 +74,6 @@ function Board({ width, height }) {
                 vis[x][y] = Vis.Flagged;
             }
         }
-
-        cell.setStyle('cell ' + vis[x][y]);
     }
 
     const vis = [];

@@ -1,7 +1,19 @@
 .cell {
-    width: 15px;
-    height: 15px;
+    width: 25px;
+    height: 25px;
     outline: 1px solid black;
+}
+
+.hide {
+    background-color: #9ef365;
+}
+
+.flag {
+    background-color: #ffc500;
+}
+
+.clear {
+
 }
 
 .column {

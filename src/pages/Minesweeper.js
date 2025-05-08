@@ -9,9 +9,34 @@ const Vis = {
 }
 
 function Cell({ x, y, bombs, vis }) {
-    const style = 'cell ' + vis[x][y];
+    const [style, setStyle] = useState('cell ' + vis[x][y]);
 
-    return <div class={style}></div>;
+    const clicked = (e) => {
+        e.preventDefault();
+        console.log(e.type);
+        if (e.type === 'click') {
+            if (vis[x][y] !== Vis.Flagged) {
+                vis[x][y] = Vis.Cleared;
+            }
+        } else if (e.type === 'contextmenu') {
+            if (vis[x][y] === Vis.Flagged) {
+                vis[x][y] = Vis.Hidden;
+            } else if (vis[x][y] !== Vis.Cleared) {
+                vis[x][y] = Vis.Flagged;
+            }
+        }
+
+        setStyle('cell ' + vis[x][y]);
+    }
+
+    return (
+        <div 
+            onClick={clicked} 
+            onContextMenu={clicked}
+            class={style}
+        >
+        </div>
+    );
 }
 
 function Col({ x, height, bombs, vis }) {

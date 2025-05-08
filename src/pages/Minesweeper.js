@@ -8,9 +8,7 @@ const Vis = {
     Hidden: 'hide',
 }
 
-function Cell({ x, y, bombs, vis, handleClick }) {
-    const [style, setStyle] = useState('cell ' + vis[x][y]);
-
+function Cell({ x, y, bombs, style, handleClick }) {
     let number = 'B';
     let num_temp = 0;
     if (!bombs[x][y]) {
@@ -37,7 +35,6 @@ function Cell({ x, y, bombs, vis, handleClick }) {
     const clicked = (e) => {
         e.preventDefault();
         handleClick(e, x, y);
-        setStyle('cell ' + vis[x][y]);
     }
 
     return (
@@ -51,11 +48,11 @@ function Cell({ x, y, bombs, vis, handleClick }) {
     );
 }
 
-function Col({ x, height, bombs, vis, handleClick }) {
+function Col({ x, height, bombs, styles, handleClick }) {
     const cells = [];
 
     for (let j = 0; j < height; j++) {
-        cells.push(<Cell x={x} y={j} bombs={bombs} vis={vis} handleClick={handleClick} />);
+        cells.push(<Cell x={x} y={j} bombs={bombs} style={styles[j]} handleClick={handleClick} />);
     }
 
     return <div class="column">{cells}</div>;
@@ -100,7 +97,7 @@ function Board({ width, height }) {
     bombs[0][8] = true;
 
     for (let i = 0; i < width; i++) {
-        board.push(<Col x={i} height={height} bombs={bombs} vis={vis} handleClick={handleClick} />);
+        board.push(<Col x={i} height={height} bombs={bombs} styles={vis[i]} handleClick={handleClick} />);
     }
 
     return <div class="board">{board}</div>;

@@ -54,6 +54,38 @@ function Board({ width, height }) {
         }
 
         document.getElementById(x + 'x' + y + 'y').classList.value = vis[x][y];
+        
+        if (numbers[x][y] === 0) {
+            const lx = (x == 0) ? x : x - 1;
+            const hx = (x == bombs.length-1) ? x + 1 : x + 2;
+            const ly = (y == 0) ? y : y - 1;
+            const hy = (y == bombs[0].length-1) ? y + 1 : y + 2;
+
+            for (let i = lx; i < hx; i++) {
+                for (let j = ly; j < hy; j++) {
+                    spread(i, j);
+                }
+            }
+        }
+    }
+
+    function spread(x, y) {
+        if ((vis[x][y] === Vis.Hidden) && (numbers[x][y] === 0)) {
+            vis[x][y] = Vis.Cleared;
+            document.getElementById(x + 'x' + y + 'y').classList.value = vis[x][y];
+
+            // get neighbors
+            const lx = (x == 0) ? x : x - 1;
+            const hx = (x == bombs.length-1) ? x + 1 : x + 2;
+            const ly = (y == 0) ? y : y - 1;
+            const hy = (y == bombs[0].length-1) ? y + 1 : y + 2;
+        
+            for (let i = lx; i < hx; i++) {
+                for (let j = ly; j < hy; j++) {
+                    spread(i, j);
+                }
+            }
+        }
     }
 
     const vis = [];

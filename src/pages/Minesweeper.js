@@ -9,12 +9,40 @@ const Vis = {
 }
 
 class Square {
-    constructor(x, y) {}
-    render() {}
+    constructor(x, y, handleClick) {
+        this.x = x;
+        this.y = y;
+        this.vis = Vis.Hidden;
+        this.bomb = false;
+        this.number = '';
+        this.handleClick = handleClick;
+
+        // generate list of neighbors
+        this.neighbors = [];
+    }
+
+    addNeighbor(ref) {
+        this.neighbors.push(ref);
+    }
+
+    render() {
+        return (
+            <div
+                onClick={clicked}
+                onContextMenu={clicked}
+                class={this.vis}
+            >
+                {this.number}
+            </div>
+        );
+    }
 }
 
 class Grid {
-    constructor(width, height) {}
+    constructor(width, height, bombs) {
+
+    }
+
     render() {}
 }
 

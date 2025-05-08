@@ -9,13 +9,12 @@ const Vis = {
 }
 
 class Square {
-    constructor(x, y, handleClick) {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
         this.vis = Vis.Hidden;
         this.bomb = false;
         this.number = '';
-        this.handleClick = handleClick;
 
         // generate list of neighbors
         this.neighbors = [];
@@ -25,11 +24,27 @@ class Square {
         this.neighbors.push(ref);
     }
 
+    handleClick(e) {
+        e.preventDefault();
+        
+        if (e.type === 'click') {
+            if (this.vis !== Vis.Flagged) {
+                this.vis = Vis.Cleared;
+            }
+        } else if (e.type === 'contextmenu') {
+            if (this.vis === Vis.Flagged) {
+                this.vis = Vis.Hidden;
+            } else if (this.vis !== Vis.Cleared) {
+                this.vis = Vis.Flagged;
+            }
+        }
+    }
+
     render() {
         return (
             <div
-                onClick={clicked}
-                onContextMenu={clicked}
+                onClick={this.handleClick}
+                onContextMenu={this.handleClick}
                 class={this.vis}
             >
                 {this.number}
@@ -40,10 +55,37 @@ class Square {
 
 class Grid {
     constructor(width, height, bombs) {
+        this.width = width;
+        this.height = height;
+        this.bombs = bombs;
 
+        this.cells = [];
+        for (let i = 0; i < width; i++) {
+            this.cells.push([]);
+
+            for (let j = 0; j < height; j++) {
+                this.cells[i].push(new Square(i, j));
+            }
+        }
     }
 
-    render() {}
+    render() {
+        let cols = [];
+
+        for (let i = 0; i < this.width; i++) {
+            cols.push([]);
+
+            for (let j = 0; j < this.height; j++) {
+                cols[i].push(this.cells[i][j].render());
+            }
+        }
+
+        return (
+            <div class="board">
+
+            </div>
+        );
+    }
 }
 
 function Minesweeper() {

@@ -3,9 +3,9 @@ import { React, useState } from 'react';
 import './minesweeper.css';
 
 const Vis = {
-    Cleared: 'clear',
-    Flagged: 'flag',
-    Hidden: 'hide',
+    Cleared: 'cell clear',
+    Flagged: 'cell flag',
+    Hidden: 'cell hide',
 }
 
 function Cell({ x, y, bombs, style, handleClick }) {
@@ -42,7 +42,7 @@ function Cell({ x, y, bombs, style, handleClick }) {
         <div 
             onClick={clicked} 
             onContextMenu={clicked}
-            class={style}
+            class={Vis.Hidden}
             id={id}
         >
             {number}

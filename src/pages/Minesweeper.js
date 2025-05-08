@@ -8,16 +8,16 @@ const Vis = {
     Hidden: 'hide',
 }
 
-function Cell({ x, y, bombs, vis }) {
+function Cell({ x, y, bombs, vis, handleClick }) {
     const [style, setStyle] = useState('cell ' + vis[x][y]);
 
     let number = 'B';
     let num_temp = 0;
     if (!bombs[x][y]) {
         const lx = (x == 0) ? x : x - 1;
-        const hx = (x == vis.length-1) ? x + 1 : x + 2;
+        const hx = (x == bombs.length-1) ? x + 1 : x + 2;
         const ly = (y == 0) ? y : y - 1;
-        const hy = (y == vis[0].length-1) ? y + 1 : y + 2;
+        const hy = (y == bombs[0].length-1) ? y + 1 : y + 2;
 
         // console.log('i am square (' + x + ',' + y + ') checking ' + lx + ' to ' + hx + ' and ' + ly + ' to ' + hy);
 
@@ -34,23 +34,9 @@ function Cell({ x, y, bombs, vis }) {
         }
     }
     
-
     const clicked = (e) => {
         e.preventDefault();
-        console.log(e.type);
-        if (e.type === 'click') {
-            if (vis[x][y] !== Vis.Flagged) {
-                vis[x][y] = Vis.Cleared;
-            }
-        } else if (e.type === 'contextmenu') {
-            if (vis[x][y] === Vis.Flagged) {
-                vis[x][y] = Vis.Hidden;
-            } else if (vis[x][y] !== Vis.Cleared) {
-                vis[x][y] = Vis.Flagged;
-            }
-        }
-
-        setStyle('cell ' + vis[x][y]);
+        handleClick(e, this);
     }
 
     return (
@@ -64,17 +50,33 @@ function Cell({ x, y, bombs, vis }) {
     );
 }
 
-function Col({ x, height, bombs, vis }) {
+function Col({ x, height, bombs, vis, handleClick }) {
     const cells = [];
 
     for (let j = 0; j < height; j++) {
-        cells.push(<Cell x={x} y={j} bombs={bombs} vis={vis} />);
+        cells.push(<Cell x={x} y={j} bombs={bombs} vis={vis} handleClick={handleClick} />);
     }
 
     return <div class="column">{cells}</div>;
 }
 
 function Board({ width, height }) {
+    function handleClick(event, cell) {
+        if (event.type === 'click') {
+            if (vis[x][y] !== Vis.Flagged) {
+                vis[x][y] = Vis.Cleared;
+            }
+        } else if (event.type === 'contextmenu') {
+            if (vis[x][y] === Vis.Flagged) {
+                vis[x][y] = Vis.Hidden;
+            } else if (vis[x][y] !== Vis.Cleared) {
+                vis[x][y] = Vis.Flagged;
+            }
+        }
+
+        cell.setStyle('cell ' + vis[x][y]);
+    }
+
     const vis = [];
     const bombs = [];
     const board = [];
@@ -99,7 +101,7 @@ function Board({ width, height }) {
     bombs[0][8] = true;
 
     for (let i = 0; i < width; i++) {
-        board.push(<Col x={i} height={height} bombs={bombs} vis={vis} />);
+        board.push(<Col x={i} height={height} bombs={bombs} vis={vis} handleClick={handleClick} />);
     }
 
     return <div class="board">{board}</div>;

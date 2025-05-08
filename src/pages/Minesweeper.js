@@ -14,35 +14,39 @@ function Cell({ x, y, bombs, vis }) {
     return <div class={style}></div>;
 }
 
-function Row({ j, width, bombs, vis }) {
+function Col({ x, height, bombs, vis }) {
     const cells = [];
 
-    for (let i = 0; i < width; i++) {
-        cells.push(<Cell x={i} y={j} bombs={bombs} vis={vis} />);
+    for (let j = 0; j < height; j++) {
+        cells.push(<Cell x={x} y={j} bombs={bombs} vis={vis} />);
     }
 
-    return <>{cells}</>;
+    return <div class="column">{cells}</div>;
 }
 
 function Board({ width, height }) {
-    const vis = [[]];
-    const bombs = [[]];
+    const vis = [];
+    const bombs = [];
     const board = [];
 
-    for (let j = 0; j < height; j++) {
-        const visRow = [];
-        const bombsRow = [];
+    for (let i = 0; i < width; i++) {
+        let visCol = [];
+        let bombsCol = [];
 
-        for (let i = 0; i < width; i++) {
-            visRow.push(Vis.Hidden);
+        for (let j = 0; j < height; j++) {
+            visCol.push(Vis.Hidden);
+            bombsCol.push(false);
         }
+
+        vis.push(visCol);
+        bombs.push(bombsCol);
     }
 
-    for (let j = 0; j < height; j++) {
-        board.push(<Row width={width} j={j} bombs={bombs} vis={vis} />);
+    for (let i = 0; i < width; i++) {
+        board.push(<Col x={i} height={height} bombs={bombs} vis={vis} />);
     }
 
-    return <>{board}</>;
+    return <div class="board">{board}</div>;
 }
 
 function Minesweeper() {

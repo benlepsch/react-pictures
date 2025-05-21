@@ -16,9 +16,6 @@ function Navigation() {
                 <Link to='/pictures'>Pictures</Link>
             </div>
             <div class="flexy flex-row nav-link">
-                <Link to='/minesweeper'>Minesweeper</Link>
-            </div>
-            <div class="flexy flex-row nav-link">
                 <a href="https://sbcord.com/" target="_blank" rel="noopener noreferrer">Friends</a>
             </div>
             <div class="flexy flex-row nav-link">

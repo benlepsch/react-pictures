@@ -113,6 +113,14 @@ const PICTURE_DATA = [
         src: "images/IMG_6177.jpg",
         alt: "View from inside the Looking Glass arch outside Moab, UT",
     },
+    {
+        src: "images/rivercrossing.jpg",
+        alt: "Fording a river on the Forks of Cheat bikepacking loop. Canaan Valley, WV",
+    },
+    {
+        src: "images/firetower.jpg",
+        alt: "View from the Bickle Knob Observation Tower near Canaan Valley, WV",
+    }
 ];
 
 

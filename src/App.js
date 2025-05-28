@@ -7,7 +7,8 @@ import Minesweeper from './pages/Minesweeper';
 import PageNotFound from './pages/404';
 
 function Navigation() {
-    return (
+
+   return (
         <header class="flexy flex-row">
             <div class="flexy flex-row nav-link">
                 <Link to='/'>Home</Link>

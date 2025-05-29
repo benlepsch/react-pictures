@@ -36,7 +36,7 @@ function Home() {
     // log out function to log the user out of google and set the profile array to null
     const logOut = () => {
         googleLogout();
-        setProfile(null);
+        setProfile([]);
     };
 
     return (
@@ -44,6 +44,7 @@ function Home() {
             <h2>React Google Login</h2>
             <br />
             <br />
+            
             {(profile) ? (
                 <div>
                     <img src={profile.picture} alt="user image" />

@@ -7,7 +7,7 @@ function Home() {
     document.title = 'Ben Lepsch Website';
 
     const [ user, setUser ] = useState([]);
-    const [ profile, setProfile ] = useState([]);
+    const [ profile, setProfile ] = useState(null);
 
     const login = useGoogleLogin({
         onSuccess: (codeResponse) => setUser(codeResponse),
@@ -44,7 +44,7 @@ function Home() {
             <h2>React Google Login</h2>
             <br />
             <br />
-            {profile ? (
+            {(profile) ? (
                 <div>
                     <img src={profile.picture} alt="user image" />
                     <h3>User Logged in</h3>
